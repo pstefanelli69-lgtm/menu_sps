@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Alimentación - Pascual Stefanelli</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #27ae60;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #333333;
+            --muted: #7f8c8d;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), #34495e);
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            border-bottom: 5px solid var(--accent);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        header p {
+            margin: 0.5rem 0 0 0;
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .professional-info {
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            color: #bdc3c7;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .macro-summary {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .macro-badge {
+            display: inline-block;
+            background: #e8f8f5;
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 0.5rem;
+        }
+
+        .grid-meals {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .meal-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            border-top: 4px solid var(--primary);
+            transition: transform 0.2s;
+        }
+
+        .meal-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .meal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .meal-title {
+            margin: 0;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        .meal-targets {
+            font-size: 0.85rem;
+            color: var(--muted);
+            text-align: right;
+        }
+
+        .recipe-option {
+            background: #fdfefe;
+            border: 1px solid #eaeded;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .recipe-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .ingredient-list {
+            margin: 0;
+            padding-left: 1.2rem;
+            font-size: 0.9rem;
+        }
+
+        .colaciones-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .colaciones-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f2f4f4;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Checkbox customizer */
+        .done-checkbox {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--accent);
+        }
+
+        .completed {
+            opacity: 0.6;
+            text-decoration: line-through;
+            transition: all 0.3s;
+        }
+
+        .note {
+            font-size: 0.85rem;
+            background: #fcf3cf;
+            padding: 0.5rem;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 600px) {
+            main { margin: 1rem auto; }
+            .grid-meals { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Plan de Alimentación</h1>
+        <p>Consultante: <strong>Pascual Stefanelli</strong></p>
+        <p>Fecha: 13/7/2026</p>
+        <div class="professional-info">
+            Lic. Delfina Rinaldelli - Lic. en Nutrición (U.B.A) <br>
+            M.N 10.752
+        </div>
+    </header>
+
+    <main>
+        <div class="macro-summary">
+            <h3>Objetivo Diario</h3>
+            <span class="macro-badge">2400 kcal</span>
+            <span class="macro-badge">135 - 180 g Proteínas</span>
+        </div>
+
+        <div class="grid-meals">
+            
+            <div class="meal-card">
+                <div class="meal-header">
+                    <h2 class="meal-title">Desayuno</h2>
+                    <div class="meal-targets">450-550 kcal<br>20-30g Prot</div>
+                </div>
+                <p style="font-size:0.85rem; color:var(--muted);">Acompañar con infusión a gusto y fruta</p>
+                
+                <div class="recipe-option">
+                    <div class="recipe-title"><input type="checkbox" class="done-checkbox"> Bowl de Yogur Griego y Coco</div>
+                    <ul class="ingredient-list">
+                        <li>1 pote (150g) de yogur griego natural</li>
+                        <li>30g de nueces mariposa (~6-7 enteras)</li>
+                        <li>15g de almendras (~12-15 u.)</li>
+                        <li>15g de coco rallado o en escamas</li>
+                        <li>1 cda sopera (15g) de semillas de chía o lino</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-option">
+                    <div class="recipe-title"><input type="checkbox" class="done-checkbox"> Pancakes de Almendras y Coco</div>
+                    <ul class="ingredient-list">
+                        <li>35g de harina de almendras</li>
+                        <li>1 huevo entero + 2 claras</li>
+                        <li>1 cda sopera (15g) de queso blanco untable desc.</li>
+                        <li>Vainilla y edulcorante apto cocción</li>
+                        <li>Topping: 1 cda sopera colmada (20g) de manteca de maní</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-option">
+                    <div class="recipe-title"><input type="checkbox" class="done-checkbox"> Batido Keto Cremoso</div>
+                    <ul class="ingredient-list">
+                        <li>1 scoop (30g) de proteína en polvo (Whey)</li>
+                        <li>200ml de leche de almendras sin azúcar</li>
+                        <li>1 cda sopera de mantequilla de almendras o maní (20g)</li>
+                        <li>1/2 palta chica (~50g) procesada</li>
+                        <li>Café instantáneo o 1 cdita de cacao amargo + hielo</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="meal-card" style="border-top-color: var(--accent);">
+                <div class="meal-header">
+                    <h2 class="meal-title">Colación 1</h2>
+                    <div class="meal-targets">110-130 kcal<br>10-20g Prot</div>
+                </div>
+                <ul class="colaciones-list">
+                    <li><input type="checkbox" class="done-checkbox"> Yogur griego / protein</li>
+                    <li><input type="checkbox" class="done-checkbox"> Queso por salut light / Cuartirolo (45g)</li>
+                    <li><input type="checkbox" class="done-checkbox"> 2 fetas de jamón cocido natural + 1 de queso</li>
+                    <li><input type="checkbox" class="done-checkbox"> 1 lata de atún al natural (opcional con queso untable)</li>
+                    <li><input type="checkbox" class="done-checkbox"> 1 huevo duro</li>
+                    <li><input type="checkbox" class="done-checkbox"> 4 claras con tomates cherry</li>
+                    <li><input type="checkbox" class="done-checkbox"> Licuado: 1/2 vaso leche desc. + 1/2 scoop whey</li>
+                </ul>
+            </div>
+
+            <div class="meal-card">
+                <div class="meal-header">
+                    <h2 class="meal-title">Almuerzo</h2>
+                    <div class="meal-targets">600-650 kcal<br>40-60g Prot</div>
+                </div>
+                <p class="note"><strong>Verduras:</strong> Cantidad libre</p>
+
+                <div class="recipe-option">
+                    <div class="recipe-title"><input type="checkbox" class="done-checkbox"> Bowl de Salmón o Trucha</div>
+                    <ul class="ingredient-list">
+                        <li>150g de salmón rosado, blanco o trucha</li>
+                        <li>1/2 taza de quinoa cocida (~70-80g)</li>
+                        <li>1/2 palta chica (~50g) en cubos</li>
+                        <li>15g de almendras fileteadas</li>
+                        <li>Base de hojas verdes libres (espinaca, rúcula) con yogur y limón</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-option">
+                    <div class="recipe-title"><input type="checkbox" class="done-checkbox"> Hamburguesas de Atún y Quinoa</div>
+                    <ul class="ingredient-list">
+                        <li>1 lata grande de atún al natural (~170g) + 1 huevo</li>
+                        <li>1/2 taza de quinoa cocida (80g) en la masa</li>
+                        <li>Salsa: 1 cda sopera colmada (20g) de tahine o manteca de maní</li>
+                        <li>Acompañar con vegetales al horno sin almidón</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="meal-card">
+                <div class="meal-header">
+                    <h2 class="meal-title">Merienda</h2>
+                    <div class="meal-targets">450-550 kcal<br>20-30g Prot</div>
+                </div>
+                <p style="font-size:0.85rem; color:var(--muted);">Acompañar con infusión a gusto y fruta</p>
+                
+                <div class="recipe-option">
+                    <div class="recipe-title"><input type="checkbox" class="done-checkbox"> Huevos Revueltos con Palta</div>
+                    <ul class="ingredient-list">
+                        <li>2 huevos enteros + 2 claras</li>
+                        <li>1/2 palta grande o 1 chica (~80-90g)</li>
+                        <li>50g de queso por salut light o cuartirolo magro</li>
+                        <li>1 cda de postre (10g) de mix de semillas tostadas</li>
+                        <li>1 cdita de aceite de oliva para la sartén</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-option">
+                    <div class="recipe-title"><input type="checkbox" class="done-checkbox"> Tostón de Almendras con Salmón</div>
+                    <ul class="ingredient-list">
+                        <li>Pan de taza: 30g harina de almendras + 1 huevo + 1/2 cdita polvo hornear</li>
+                        <li>Topping: 60g de pavita premium o salmón ahumado</li>
+                        <li>40g de queso crema firme tradicional</li>
+                        <li>Rodajas de pepino o tomate</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-option">
+                    <div class="recipe-title"><input type="checkbox" class="done-checkbox"> Omelette de Queso y Champiñones</div>
+                    <ul class="ingredient-list">
+                        <li>2 huevos enteros + 1 clara</li>
+                        <li>60g de queso light</li>
+                        <li>1/2 taza de champiñones fileteados salteados</li>
+                        <li>Acompañamiento: 20g de almendras tostadas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="meal-card" style="border-top-color: var(--accent);">
+                <div class="meal-header">
+                    <h2 class="meal-title">Colación 2</h2>
+                    <div class="meal-targets">110-130 kcal<br>10-20g Prot</div>
+                </div>
+                <ul class="colaciones-list">
+                    <li><input type="checkbox" class="done-checkbox"> Yogur griego / protein</li>
+                    <li><input type="checkbox" class="done-checkbox"> Queso por salut light / Cuartirolo (45g)</li>
+                    <li><input type="checkbox" class="done-checkbox"> 2 fetas de jamón cocido natural + 1 de queso</li>
+                    <li><input type="checkbox" class="done-checkbox"> 1 lata de atún al natural</li>
+                    <li><input type="checkbox" class="done-checkbox"> 1 huevo duro</li>
+                    <li><input type="checkbox" class="done-checkbox"> 4 claras con tomates cherry</li>
+                    <li><input type="checkbox" class="done-checkbox"> Licuado: 1/2 vaso leche desc. + 1/2 scoop whey</li>
+                </ul>
+            </div>
+
+            <div class="meal-card">
+                <div class="meal-header">
+                    <h2 class="meal-title">Cena</h2>
+                    <div class="meal-targets">600-650 kcal<br>40-60g Prot</div>
+                </div>
+                <p class="note"><strong>Verduras:</strong> Cantidad libre</p>
+
+                <div class="recipe-option">
+                    <div class="recipe-title"><input type="checkbox" class="done-checkbox"> Suprema Rellena con Costra</div>
+                    <ul class="ingredient-list">
+                        <li>180g de pechuga de pollo abierta en mariposa</li>
+                        <li>Relleno: 30g de queso por salut light y espinacas</li>
+                        <li>Rebozado: 20g avena + 15g nueces picadas + 1 clara</li>
+                        <li>Ensalada de cherrys y brotes con 1 cda de aceite de oliva</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-option">
+                    <div class="recipe-title"><input type="checkbox" class="done-checkbox"> Bife con Ensalada de Lentejas</div>
+                    <ul class="ingredient-list">
+                        <li>160g de bife de cuadril, lomo u ojo de bife</li>
+                        <li>1/2 taza de lentejas cocidas (~90g)</li>
+                        <li>1/2 palta mediana (~70g)</li>
+                        <li>Tomate, cebolla morada y perejil (Pico de gallo) + 1 cdita de oliva</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-option">
+                    <div class="recipe-title"><input type="checkbox" class="done-checkbox"> Pollo al Curry con Crema de Coco</div>
+                    <ul class="ingredient-list">
+                        <li>150g de pechuga de pollo en dados</li>
+                        <li>60g de porotos negros cocidos (~1/3 de taza)</li>
+                        <li>Salsa: 50cc crema de coco diluida con caldo y curry</li>
+                        <li>1 cda sopera de semillas de girasol o calabaza (15g)</li>
+                        <li>Hojas verdes o brócoli salteado de base</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // JS clásico para interactividad: Marcar opciones completadas
+        document.querySelectorAll('.done-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const parentElement = this.closest('.recipe-option') || this.closest('li');
+                if (this.checked) {
+                    parentElement.classList.add('completed');
+                } else {
+                    parentElement.classList.remove('completed');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
